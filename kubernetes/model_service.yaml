@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: insurance-charges-model-deployment
+  labels:
+    app: insurance-charges-model
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: insurance-charges-model
+  template:
+    metadata:
+      labels:
+        app: insurance-charges-model
+    spec:
+      containers:
+        - name: insurance-charges-model
+          image: registry.digitalocean.com/model-services-registry/insurance_charges_model_service:0.1.0
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: "250m"
+          env:
+            - name: REST_CONFIG
+              value: ./configuration/kubernetes_rest_config3.yaml
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-postgresql
+                  key: postgres-password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: insurance-charges-model-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: insurance-charges-model
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8000

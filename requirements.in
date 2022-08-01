@@ -1,0 +1,5 @@
+ml_base>=0.2.0
+rest_model_service>=0.2.0
+jupyter
+-e git+https://github.com/schmidtbri/regression-model#egg=insurance_charges_model
+Faker

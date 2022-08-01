@@ -1,0 +1,11 @@
+service_title: Insurance Charges Model Service
+models:
+  - qualified_name: insurance_charges_model
+    class_path: insurance_charges_model.prediction.model.InsuranceChargesModel
+    create_endpoint: true
+    decorators:
+      - class_path: ml_model_caching.redis.RedisCachingDecorator
+        configuration:
+          host: ""
+          port: 5432
+          prefix: ""
