@@ -24,7 +24,7 @@ All of the code is available in this [github repository](https://github.com/schm
 
 ## Software Architecture
 
-![Software Architecture](software_architecture_cfmlm.png)
+![Software Architecture]({attach}software_architecture_cfmlm.png){ width=100% }
 
 For caching predictions, we’ll be using [Redis](https://en.wikipedia.org/wiki/Redis). Redis is a data structure store that allows users to save and modify data structures in a remote service. This allows many clients to safely access the same data from a centralized service. Redis supports many different data structures, but we’ll be using the key-value store functionality to save our predictions.
 
@@ -1606,7 +1606,7 @@ Using Redis in this manner is an example of sharding. Sharding is the process of
 
 A more detailed diagram of our software architecture looks like this:
 
-![Better Software Architecture](better_software_architecture_cfmlm.png)
+[Better Software Architecture]({attach}better_software_architecture_cfmlm.png){ width=100% }
 
 The Redis service is defined in the kubernetes/redis_service.yaml file. We can create it with this command:
 
