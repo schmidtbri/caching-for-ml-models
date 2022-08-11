@@ -7,5 +7,5 @@ models:
       - class_path: ml_model_caching.redis.RedisCachingDecorator
         configuration:
           host: "localhost"
-          port: 6379
+          port: 6380
           database: 0

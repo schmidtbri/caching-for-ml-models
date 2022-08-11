@@ -16,23 +16,23 @@ argon2-cffi==21.3.0
     # via notebook
 argon2-cffi-bindings==21.2.0
     # via argon2-cffi
-asgiref==3.5.2
-    # via uvicorn
 asttokens==2.0.5
     # via stack-data
-attrs==21.4.0
+async-timeout==4.0.2
+    # via redis
+attrs==22.1.0
     # via jsonschema
 backcall==0.2.0
     # via ipython
 beautifulsoup4==4.11.1
     # via nbconvert
-bleach==5.0.0
+bleach==5.0.1
     # via nbconvert
 certifi==2022.6.15
     # via requests
-cffi==1.15.0
+cffi==1.15.1
     # via argon2-cffi-bindings
-charset-normalizer==2.0.12
+charset-normalizer==2.1.0
     # via requests
 click==8.1.3
     # via
@@ -44,35 +44,37 @@ cloudpickle==2.1.0
     #   dask
     #   distributed
     #   featuretools
-dask[dataframe]==2022.6.0
+dask[dataframe]==2022.7.1
     # via
     #   distributed
     #   featuretools
 deap==1.3.1
     # via tpot
-debugpy==1.6.0
+debugpy==1.6.2
     # via ipykernel
 decorator==5.1.1
     # via ipython
 defusedxml==0.7.1
     # via nbconvert
-distributed==2022.6.0
+deprecated==1.2.13
+    # via redis
+distributed==2022.7.1
     # via featuretools
 entrypoints==0.4
     # via
     #   jupyter-client
     #   nbconvert
-executing==0.8.3
+executing==0.9.1
     # via stack-data
-faker==13.13.0
+faker==13.15.1
     # via -r requirements.in
-fastapi==0.78.0
+fastapi==0.79.0
     # via rest-model-service
-fastjsonschema==2.15.3
+fastjsonschema==2.16.1
     # via nbformat
 featuretools==0.24.0
     # via insurance-charges-model
-fsspec==2022.5.0
+fsspec==2022.7.1
     # via dask
 h11==0.13.0
     # via uvicorn
@@ -82,7 +84,7 @@ idna==3.3
     # via
     #   anyio
     #   requests
-ipykernel==6.15.0
+ipykernel==6.15.1
     # via
     #   ipywidgets
     #   jupyter
@@ -99,7 +101,7 @@ ipython-genutils==0.2.0
     #   ipywidgets
     #   notebook
     #   qtconsole
-ipywidgets==7.7.0
+ipywidgets==7.7.1
     # via jupyter
 jedi==0.18.1
     # via ipython
@@ -112,7 +114,7 @@ joblib==1.1.0
     # via
     #   scikit-learn
     #   tpot
-jsonschema==4.6.0
+jsonschema==4.9.1
     # via nbformat
 jupyter==1.0.0
     # via -r requirements.in
@@ -123,9 +125,9 @@ jupyter-client==7.3.4
     #   nbclient
     #   notebook
     #   qtconsole
-jupyter-console==6.4.3
+jupyter-console==6.4.4
     # via jupyter
-jupyter-core==4.10.0
+jupyter-core==4.11.1
     # via
     #   jupyter-client
     #   nbconvert
@@ -134,7 +136,7 @@ jupyter-core==4.10.0
     #   qtconsole
 jupyterlab-pygments==0.2.2
     # via nbconvert
-jupyterlab-widgets==1.1.0
+jupyterlab-widgets==1.1.1
     # via ipywidgets
 locket==1.0.0
     # via
@@ -156,8 +158,10 @@ ml-base==0.2.1
     #   insurance-charges-model
     #   rest-model-service
 msgpack==1.0.4
-    # via distributed
-nbclient==0.6.4
+    # via
+    #   -r requirements.in
+    #   distributed
+nbclient==0.6.6
     # via nbconvert
 nbconvert==6.5.0
     # via
@@ -165,7 +169,6 @@ nbconvert==6.5.0
     #   notebook
 nbformat==5.4.0
     # via
-    #   ipywidgets
     #   nbclient
     #   nbconvert
     #   notebook
@@ -179,7 +182,7 @@ notebook==6.4.12
     # via
     #   jupyter
     #   widgetsnbextension
-numpy==1.22.4
+numpy==1.23.1
     # via
     #   dask
     #   deap
@@ -196,7 +199,8 @@ packaging==21.3
     #   ipykernel
     #   nbconvert
     #   qtpy
-pandas==1.4.2
+    #   redis
+pandas==1.4.3
     # via
     #   dask
     #   featuretools
@@ -214,7 +218,7 @@ pickleshare==0.7.5
     # via ipython
 prometheus-client==0.14.1
     # via notebook
-prompt-toolkit==3.0.29
+prompt-toolkit==3.0.30
     # via
     #   ipython
     #   jupyter-console
@@ -223,8 +227,6 @@ psutil==5.9.1
     #   distributed
     #   featuretools
     #   ipykernel
-psycopg2-binary==2.9.3
-    # via -r requirements.in
 ptyprocess==0.7.0
     # via
     #   pexpect
@@ -252,6 +254,8 @@ python-dateutil==2.8.2
     #   faker
     #   jupyter-client
     #   pandas
+python-snappy==0.6.1
+    # via -r requirements.in
 pytz==2022.1
     # via pandas
 pyyaml==6.0
@@ -260,7 +264,7 @@ pyyaml==6.0
     #   distributed
     #   featuretools
     #   rest-model-service
-pyzmq==23.1.0
+pyzmq==23.2.0
     # via
     #   ipykernel
     #   jupyter-client
@@ -270,7 +274,9 @@ qtconsole==5.3.1
     # via jupyter
 qtpy==2.1.0
     # via qtconsole
-requests==2.28.0
+redis==4.3.4
+    # via -r requirements.in
+requests==2.28.1
     # via update-checker
 rest-model-service==0.3.1
     # via
@@ -280,7 +286,7 @@ scikit-learn==0.24.2
     # via
     #   insurance-charges-model
     #   tpot
-scipy==1.8.1
+scipy==1.9.0
     # via
     #   featuretools
     #   scikit-learn
@@ -313,7 +319,7 @@ threadpoolctl==3.1.0
     # via scikit-learn
 tinycss2==1.1.1
     # via nbconvert
-toolz==0.11.2
+toolz==0.12.0
     # via
     #   dask
     #   distributed
@@ -344,17 +350,17 @@ traitlets==5.3.0
     #   nbformat
     #   notebook
     #   qtconsole
-typing-extensions==4.2.0
+typing-extensions==4.3.0
     # via
     #   pydantic
     #   starlette
 update-checker==0.18.0
     # via tpot
-urllib3==1.26.9
+urllib3==1.26.11
     # via
     #   distributed
     #   requests
-uvicorn==0.17.6
+uvicorn==0.18.2
     # via rest-model-service
 wcwidth==0.2.5
     # via prompt-toolkit
@@ -362,8 +368,10 @@ webencodings==0.5.1
     # via
     #   bleach
     #   tinycss2
-widgetsnbextension==3.6.0
+widgetsnbextension==3.6.1
     # via ipywidgets
+wrapt==1.14.1
+    # via deprecated
 xgboost==1.6.1
     # via tpot
 zict==2.2.0

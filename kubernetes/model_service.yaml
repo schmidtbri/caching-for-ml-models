@@ -16,29 +16,31 @@ spec:
     spec:
       containers:
         - name: insurance-charges-model
-          image: registry.digitalocean.com/model-services-registry/insurance_charges_model_service:0.1.0
+          image: insurance_charges_model_service:latest
           ports:
           - containerPort: 80
             protocol: TCP
-          imagePullPolicy: Always
+          imagePullPolicy: Never
           resources:
             requests:
               cpu: "250m"
           env:
             - name: REST_CONFIG
-              value: ./configuration/kubernetes_rest_config3.yaml
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: postgres-postgresql
-                  key: postgres-password
+              value: ./configuration/kubernetes_rest_config2.yaml
+        - name: ambassador
+          image: malexer/twemproxy
+          env:
+            - name: REDIS_SERVERS
+              value: redis-st-0.redis-service.model-services.svc.cluster.local:6379:1,redis-st-1.redis-service.model-services.svc.cluster.local:6379:1
+          ports:
+            - containerPort: 6380
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: insurance-charges-model-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: insurance-charges-model
   ports:

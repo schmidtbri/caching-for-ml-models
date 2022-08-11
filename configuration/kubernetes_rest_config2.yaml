@@ -4,8 +4,16 @@ models:
     class_path: insurance_charges_model.prediction.model.InsuranceChargesModel
     create_endpoint: true
     decorators:
+      - class_path: ml_model_caching.prediction_id.PredictionIDDecorator
       - class_path: ml_model_caching.redis.RedisCachingDecorator
         configuration:
           host: "localhost"
-          port: 6379
+          port: 6380
           database: 0
+          hashing_fields:
+            - age
+            - sex
+            - bmi
+            - children
+            - smoker
+            - region

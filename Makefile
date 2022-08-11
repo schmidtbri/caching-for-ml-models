@@ -70,7 +70,9 @@ check-pytype:  ## perform static code analysis
 	pytype data_enrichment
 
 convert-post:  ## Convert the notebook into Markdown file
-	jupyter nbconvert --to markdown blog_post/post.ipynb --output-dir='./blog_post'
+	jupyter nbconvert --to markdown blog_post/blog_post.ipynb --output-dir='./blog_post' --TagRemovePreprocessor.remove_input_tags='{"hide_code"}'
 
 build_image:  ## Build docker image
-	docker build -t insurance_charges_model_service:latest .
+	export BUILD_DATE=`date -u +'%Y-%m-%dT%H:%M:%SZ'` \
+	docker build --build-arg BUILD_DATE \
+		-t insurance_charges_model_service:latest .
