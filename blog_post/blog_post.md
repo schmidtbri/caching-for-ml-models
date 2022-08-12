@@ -1606,7 +1606,8 @@ Using Redis in this manner is an example of sharding. Sharding is the process of
 
 A more detailed diagram of our software architecture looks like this:
 
-[Better Software Architecture]({attach}better_software_architecture_cfmlm.png){ width=100% }
+![Better Software Architecture]({attach}better_software_architecture_cfmlm.png){ width=100% }
+
 
 The Redis service is defined in the kubernetes/redis_service.yaml file. We can create it with this command:
 
