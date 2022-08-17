@@ -1,8 +1,6 @@
-# caching-for-ml-models
+# Caching for ML models
 
-Caching for ML models.
-
-This code is used in this [blog post]().
+This code is used in this [blog post](https://brianschmidt-78145.medium.com/caching-for-ml-model-deployments-bdcc5a9366d8).
 
 ## Requirements
 
